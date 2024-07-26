@@ -35,12 +35,12 @@ class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClickListener {
     }
 
 
-//    override fun onMovieUpdateClick(movie: Movie) {
-//        // Aquí puedes iniciar la actividad de actualización pasando la información de la película
-//        val intent = Intent(this, UpdateMovieActivity::class.java)
-//        intent.putExtra("MOVIE_ID", movie.id)
-//        startActivity(intent)
-//    }
+    override fun onMovieUpdateClick(movie: Movie) {
+        // Aquí puedes iniciar la actividad de actualización pasando la información de la película
+        val intent = Intent(this, MovieUpdateActivity::class.java)
+        intent.putExtra("movie_id", movie.id)
+        startActivity(intent)
+    }
 //
 //    override fun onMovieDelete(movie: Movie) {
 //        // Aquí puedes eliminar la película de la base de datos
@@ -53,9 +53,6 @@ class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClickListener {
         moviesAdapter.refreshMovies(dbHelper.consultarTodasLasPeliculas())
     }
 
-    override fun onMovieUpdateClick(movie: Movie) {
-        TODO("Not yet implemented")
-    }
 
     override fun onMovieDelete(movie: Movie) {
         TODO("Not yet implemented")

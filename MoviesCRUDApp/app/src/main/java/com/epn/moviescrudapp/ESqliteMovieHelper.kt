@@ -69,4 +69,40 @@ class ESqliteMovieHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         return listaPeliculas
     }
 
+    fun consultarPeliculaPorId(id: Int): Movie? {
+        val baseDatosLectura = readableDatabase
+        val scriptConsultaLectura = "SELECT * FROM MOVIE WHERE ${COLUMNA_ID} = $id"
+        val resultadoConsultaLectura = baseDatosLectura.rawQuery(scriptConsultaLectura, null)
+        resultadoConsultaLectura.moveToFirst()
+
+        val id = resultadoConsultaLectura.getInt(resultadoConsultaLectura.getColumnIndexOrThrow(COLUMNA_ID))
+        val title = resultadoConsultaLectura.getString(resultadoConsultaLectura.getColumnIndexOrThrow(COLUMNA_TITULO))
+        val director = resultadoConsultaLectura.getString(resultadoConsultaLectura.getColumnIndexOrThrow(COLUMNA_DIRECTOR))
+        val genre = resultadoConsultaLectura.getString(resultadoConsultaLectura.getColumnIndexOrThrow(COLUMNA_GENERO))
+        val year = resultadoConsultaLectura.getInt(resultadoConsultaLectura.getColumnIndexOrThrow(COLUMNA_ANIO))
+        val synopsis = resultadoConsultaLectura.getString(resultadoConsultaLectura.getColumnIndexOrThrow(COLUMNA_SINOPSIS))
+
+        baseDatosLectura.close()
+        resultadoConsultaLectura.close()
+        return Movie(id, title, director, genre, year, synopsis)
+    }
+
+    fun actualizarPelicula(
+        movie: Movie
+    ): Boolean {
+        val conexionEscritura = writableDatabase
+        val valoresActualizar = ContentValues().apply {
+            put(COLUMNA_TITULO, movie.title)
+            put(COLUMNA_DIRECTOR, movie.director)
+            put(COLUMNA_GENERO, movie.genre)
+            put(COLUMNA_ANIO, movie.year)
+            put(COLUMNA_SINOPSIS, movie.synopsis)
+        }
+        val parametrosActualizar = arrayOf(movie.id.toString())
+        val resultado =
+            conexionEscritura.update("MOVIE", valoresActualizar, "id = ?", parametrosActualizar)
+        conexionEscritura.close()
+        return resultado != -1
+    }
+
 }
