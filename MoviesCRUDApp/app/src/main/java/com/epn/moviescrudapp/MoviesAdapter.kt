@@ -1,6 +1,7 @@
 package com.epn.moviescrudapp
 
 import android.app.AlertDialog
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -23,6 +24,7 @@ class MoviesAdapter(private var movies: List<Movie>, private val listener: OnMov
         val genreTextView: TextView = itemView.findViewById(R.id.genreTextView)
         val yearTextView: TextView = itemView.findViewById(R.id.yearTextView)
         val synopsisTextView: TextView = itemView.findViewById(R.id.synopsisTextView)
+        val movieEditButton: TextView = itemView.findViewById(R.id.movieEditButton)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieViewHolder {

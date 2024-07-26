@@ -7,12 +7,14 @@ import android.database.sqlite.SQLiteOpenHelper
 
 class ESqliteHelperMovie(context: Context) : SQLiteOpenHelper(context, "moviles", null, 1) {
 
-    private const val COLUMNA_ID = "id"
-    private const val COLUMNA_TITULO = "titulo"
-    private const val COLUMNA_DIRECTOR = "director"
-    private const val COLUMNA_GENERO = "genero"
-    private const val COLUMNA_ANIO = "anio"
-    private const val COLUMNA_SINOPSIS = "sinopsis"
+    companion object{
+        private const val COLUMNA_ID = "id"
+        private const val COLUMNA_TITULO = "titulo"
+        private const val COLUMNA_DIRECTOR = "director"
+        private const val COLUMNA_GENERO = "genero"
+        private const val COLUMNA_ANIO = "anio"
+        private const val COLUMNA_SINOPSIS = "sinopsis"
+    }
 
     override fun onCreate(db: SQLiteDatabase?) {
         val scriptSQLCrearTablaMovie = """

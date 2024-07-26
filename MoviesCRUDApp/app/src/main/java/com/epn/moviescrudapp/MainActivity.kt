@@ -60,4 +60,5 @@ class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClickListener {
     override fun onMovieDelete(movie: Movie) {
         TODO("Not yet implemented")
     }
+
 }

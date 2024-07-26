@@ -13,6 +13,9 @@
         android:theme="@style/Theme.MoviesCRUDApp"
         tools:targetApi="31">
         <activity
+            android:name=".MovieUpdateActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddMovieActivity"
             android:exported="false" />
         <activity
