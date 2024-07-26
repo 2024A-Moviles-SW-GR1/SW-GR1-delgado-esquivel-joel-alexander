@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vista.MovieUpdateActivity">
+
+    <TextView
+        android:id="@+id/movieEditTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Editar Película"
+        android:textColor="#0000FF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/movieEditLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="HardcodedText" />
+
+    <LinearLayout
+        android:id="@+id/movieEditLayout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/movieEditButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/movieEditTitle">
+
+        <!-- Campo 1: Título de la Película -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Título de la Película"
+            android:textStyle="bold"
+            tools:ignore="HardcodedText" />
+        <EditText
+            android:id="@+id/editTextTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese el título"
+            tools:ignore="HardcodedText" />
+
+        <!-- Campo 2: Director -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Director"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            tools:ignore="HardcodedText" />
+        <EditText
+            android:id="@+id/editTextDirector"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese el director"
+            tools:ignore="HardcodedText" />
+
+        <!-- Campo 3: Año de Estreno -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Año de Estreno"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            tools:ignore="HardcodedText" />
+        <EditText
+            android:id="@+id/editTextYear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese el año de estreno"
+            android:inputType="number"
+            tools:ignore="HardcodedText" />
+
+        <!-- Campo 4: Género -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Género"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            tools:ignore="HardcodedText" />
+        <EditText
+            android:id="@+id/editTextGenre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese el género"
+            tools:ignore="HardcodedText" />
+
+        <!-- Campo 5: Sinopsis -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sinopsis"
+            android:textStyle="bold"
+            android:layout_marginTop="16dp"
+            tools:ignore="HardcodedText" />
+        <EditText
+            android:id="@+id/editTextSynopsis"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ingrese la sinopsis"
+            tools:ignore="HardcodedText" />
+    </LinearLayout>
+
+    <Button
+        android:backgroundTint="#3F51B5"
+        android:id="@+id/movieEditButton"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:text="Actualizar Película"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/movieEditLayout"
+        tools:ignore="HardcodedText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
