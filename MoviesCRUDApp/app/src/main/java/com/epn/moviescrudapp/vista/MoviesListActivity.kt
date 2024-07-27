@@ -46,24 +46,18 @@ class MoviesListActivity : AppCompatActivity(), MoviesAdapter.OnMovieClickListen
 
     }
 
-
-    override fun onMovieDelete(movie: Movie) {
-        TODO("Not yet implemented")
-    }
-
-
     override fun onMovieUpdateClick(movie: Movie) {
         val intent = Intent(this, MovieUpdateActivity::class.java)
         intent.putExtra("movie_id", movie.id)
         startActivity(intent)
     }
 
-//    override fun onMovieDelete(movie: Movie) {
-//        // Aquí puedes eliminar la película de la base de datos
-//        dbHelper.eliminarPelicula(movie.id)
-//        moviesAdapter.refreshMovies(dbHelper.consultarTodasLasPeliculas())
-//    }
-//
+    override fun onMovieDelete(movie: Movie) {
+        // Aquí puedes eliminar la película de la base de datos
+        dbHelper.eliminarPelicula(movie.id)
+        moviesAdapter.refreshMovies(dbHelper.consultarLasPeliculasPorActor(actorId))
+    }
+
     override fun onResume() {
         super.onResume()
         moviesAdapter.refreshMovies(dbHelper.consultarLasPeliculasPorActor(actorId))
