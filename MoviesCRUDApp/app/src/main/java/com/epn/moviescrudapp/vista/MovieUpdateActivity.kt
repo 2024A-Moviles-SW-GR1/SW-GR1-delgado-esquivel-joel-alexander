@@ -47,7 +47,7 @@ class MovieUpdateActivity : AppCompatActivity() {
             val newYear = editTextYear.text.toString().toIntOrNull() ?: 0
             val newSynopsis = editTextSynopsis.text.toString()
 
-            val updatedMovie = Movie(movieId, newTitle, newDirector, newGenre, newYear, newSynopsis)
+            val updatedMovie = Movie(movieId, newTitle, newDirector, newGenre, newYear, newSynopsis, movieId)
             dbHelper.actualizarPelicula(updatedMovie)
             finish()
             Toast.makeText(this, "Película actualizada correctamente", Toast.LENGTH_SHORT).show()

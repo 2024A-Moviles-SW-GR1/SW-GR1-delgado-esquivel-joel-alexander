@@ -14,7 +14,7 @@ class ActorsAdapter(private var actors: List<Actor>, private val listener: OnMov
     interface OnMovieClickListener {
         fun onActorUpdateClick(actor: Actor)
         fun onActorDelete(actor: Actor)
-        fun onMoviesView()
+        fun onMoviesView(actor: Actor)
     }
 
     class ActorViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -50,7 +50,7 @@ class ActorsAdapter(private var actors: List<Actor>, private val listener: OnMov
                 .setTitle("Opciones")
                 .setItems(options) { dialog, which ->
                     when (which) {
-                        0 -> listener.onMoviesView()
+                        0 -> listener.onMoviesView(actor)
                         1 -> listener.onActorUpdateClick(actor)  // Actualizar
                         2 -> listener.onActorDelete(actor) // Eliminar
                     }

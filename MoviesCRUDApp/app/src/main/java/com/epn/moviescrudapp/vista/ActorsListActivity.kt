@@ -3,15 +3,13 @@ package com.epn.moviescrudapp.vista
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.epn.moviescrudapp.Actor
 import com.epn.moviescrudapp.ActorsAdapter
 import com.epn.moviescrudapp.ESqliteActorHelper
+import com.epn.moviescrudapp.ESqliteMovieHelper
 import com.epn.moviescrudapp.R
 
 class ActorsListActivity : AppCompatActivity(), ActorsAdapter.OnMovieClickListener {
@@ -49,8 +47,10 @@ class ActorsListActivity : AppCompatActivity(), ActorsAdapter.OnMovieClickListen
         actorsAdapter.refreshActors(dbHelper.consultarTodosLosActores())
     }
 
-    override fun onMoviesView() {
-        TODO("Not yet implemented")
+    override fun onMoviesView(actor: Actor) {
+        val intent = Intent(this, MoviesListActivity::class.java)
+        intent.putExtra("actor_id", actor.id)
+        startActivity(intent)
     }
 
     override fun onResume() {

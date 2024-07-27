@@ -6,6 +6,7 @@ data class Movie(
     val director: String,
     val genre: String,
     val year: Int,
-    val synopsis: String
+    val synopsis: String,
+    val actorId: Int
 )
 

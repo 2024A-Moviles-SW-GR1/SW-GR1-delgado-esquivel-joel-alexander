@@ -34,7 +34,7 @@
             android:name=".vista.AddMovieActivity"
             android:exported="false" />
         <activity
-            android:name=".vista.MainActivity"
+            android:name=".vista.MoviesListActivity"
             android:exported="false"></activity>
     </application>
 

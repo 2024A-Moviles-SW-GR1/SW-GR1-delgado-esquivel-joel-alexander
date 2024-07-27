@@ -11,18 +11,28 @@ import com.epn.moviescrudapp.Movie
 import com.epn.moviescrudapp.MoviesAdapter
 import com.epn.moviescrudapp.R
 
-class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClickListener {
+class MoviesListActivity : AppCompatActivity(), MoviesAdapter.OnMovieClickListener {
 
     private lateinit var dbHelper: ESqliteMovieHelper
+    private var actorId: Int = -1
     private lateinit var moviesAdapter: MoviesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_movies_list)
         val movieCreationButton = findViewById<Button>(R.id.movieCreationButton)
 
         dbHelper = ESqliteMovieHelper(this)
-        moviesAdapter = MoviesAdapter(dbHelper.consultarTodasLasPeliculas(), this)
+
+        //Se obtiene el id desde la actividad anterior
+        actorId = intent.getIntExtra("actor_id", -1)
+        if (actorId == -1) {
+            finish()
+            return
+        }
+
+
+        moviesAdapter = MoviesAdapter(dbHelper.consultarLasPeliculasPorActor(actorId), this)
 
         val movieListView = findViewById<RecyclerView>(R.id.movieRecyclerView)
         movieListView.layoutManager = LinearLayoutManager(this)
@@ -30,9 +40,15 @@ class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClickListener {
 
         movieCreationButton.setOnClickListener {
             val intent = Intent(this, AddMovieActivity::class.java)
+            intent.putExtra("actor_id", actorId)
             startActivity(intent)
         }
 
+    }
+
+
+    override fun onMovieDelete(movie: Movie) {
+        TODO("Not yet implemented")
     }
 
 
@@ -42,15 +58,15 @@ class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClickListener {
         startActivity(intent)
     }
 
-    override fun onMovieDelete(movie: Movie) {
-        // Aquí puedes eliminar la película de la base de datos
-        dbHelper.eliminarPelicula(movie.id)
-        moviesAdapter.refreshMovies(dbHelper.consultarTodasLasPeliculas())
-    }
-
+//    override fun onMovieDelete(movie: Movie) {
+//        // Aquí puedes eliminar la película de la base de datos
+//        dbHelper.eliminarPelicula(movie.id)
+//        moviesAdapter.refreshMovies(dbHelper.consultarTodasLasPeliculas())
+//    }
+//
     override fun onResume() {
         super.onResume()
-        moviesAdapter.refreshMovies(dbHelper.consultarTodasLasPeliculas())
+        moviesAdapter.refreshMovies(dbHelper.consultarLasPeliculasPorActor(actorId))
     }
 
 }
