@@ -1,13 +1,13 @@
-package com.epn.moviescrudapp
+package com.epn.moviescrudapp.vista
 
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.epn.moviescrudapp.ESqliteMovieHelper
+import com.epn.moviescrudapp.Movie
+import com.epn.moviescrudapp.R
 
 class AddMovieActivity : AppCompatActivity() {
 
@@ -33,6 +33,7 @@ class AddMovieActivity : AppCompatActivity() {
             val year = yearEditText.text.toString().toIntOrNull() ?: 0
             val synopsis = synopsisEditText.text.toString()
 
+            // Se coloca el id de 0 porque se autoincrementa en la base de datos
             val movie = Movie(0, title, director, genre, year, synopsis)
 
             dbHelper.crearPelicula(movie)

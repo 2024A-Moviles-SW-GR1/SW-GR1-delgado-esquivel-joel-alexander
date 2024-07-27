@@ -1,14 +1,15 @@
-package com.epn.moviescrudapp
+package com.epn.moviescrudapp.vista
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.epn.moviescrudapp.ESqliteMovieHelper
+import com.epn.moviescrudapp.Movie
+import com.epn.moviescrudapp.MoviesAdapter
+import com.epn.moviescrudapp.R
 
 class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClickListener {
 
@@ -36,7 +37,6 @@ class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClickListener {
 
 
     override fun onMovieUpdateClick(movie: Movie) {
-        // Aquí puedes iniciar la actividad de actualización pasando la información de la película
         val intent = Intent(this, MovieUpdateActivity::class.java)
         intent.putExtra("movie_id", movie.id)
         startActivity(intent)

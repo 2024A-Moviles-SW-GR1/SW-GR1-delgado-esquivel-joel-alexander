@@ -5,42 +5,45 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vista.MainActivity">
+    tools:context=".vista.ActorsListActivity">
+
 
     <TextView
-        android:id="@+id/moviesTitleText"
+        android:id="@+id/actorsTitleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Películas"
+        android:text="Actores Protagónicos"
         android:textColor="#0000FF"
         android:textSize="30sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/movieCreationButton"
+        app:layout_constraintBottom_toTopOf="@+id/actorsCreationButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="HardcodedText" />
 
+
     <Button
-        android:id="@+id/movieCreationButton"
+        android:id="@+id/actorsCreationButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:backgroundTint="#3F51B5"
-        android:text="Nueva Película"
-        app:layout_constraintBottom_toTopOf="@+id/movieRecyclerView"
+        android:text="Nuevo Actor"
+        app:layout_constraintBottom_toTopOf="@+id/actorRecyclerView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.8"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/moviesTitleText"
+        app:layout_constraintTop_toBottomOf="@+id/actorsTitleText"
         tools:ignore="HardcodedText" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/movieRecyclerView"
+        android:id="@+id/actorRecyclerView"
         android:layout_width="300dp"
         android:layout_height="510dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/movieCreationButton" />
+        app:layout_constraintTop_toBottomOf="@+id/actorsCreationButton" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
