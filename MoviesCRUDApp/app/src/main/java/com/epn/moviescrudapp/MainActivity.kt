@@ -41,21 +41,16 @@ class MainActivity : AppCompatActivity(), MoviesAdapter.OnMovieClickListener {
         intent.putExtra("movie_id", movie.id)
         startActivity(intent)
     }
-//
-//    override fun onMovieDelete(movie: Movie) {
-//        // Aquí puedes eliminar la película de la base de datos
-//        dbHelper.eliminarPelicula(movie.id)
-//        moviesAdapter.refreshMovies(dbHelper.consultarTodasLasPeliculas())
-//    }
+
+    override fun onMovieDelete(movie: Movie) {
+        // Aquí puedes eliminar la película de la base de datos
+        dbHelper.eliminarPelicula(movie.id)
+        moviesAdapter.refreshMovies(dbHelper.consultarTodasLasPeliculas())
+    }
 
     override fun onResume() {
         super.onResume()
         moviesAdapter.refreshMovies(dbHelper.consultarTodasLasPeliculas())
-    }
-
-
-    override fun onMovieDelete(movie: Movie) {
-        TODO("Not yet implemented")
     }
 
 }

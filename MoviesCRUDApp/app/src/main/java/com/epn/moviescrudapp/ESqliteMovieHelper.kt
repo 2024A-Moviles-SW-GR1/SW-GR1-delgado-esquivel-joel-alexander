@@ -105,4 +105,11 @@ class ESqliteMovieHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
         return resultado != -1
     }
 
+    fun eliminarPelicula(id: Int){
+        val conexionEscritura = writableDatabase
+        val parametrosConsultaDelete = arrayOf(id.toString())
+        val resultado = conexionEscritura.delete("MOVIE", "$COLUMNA_ID = ?", parametrosConsultaDelete)
+        conexionEscritura.close()
+    }
+
 }
