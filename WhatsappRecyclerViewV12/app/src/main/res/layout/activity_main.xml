@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/fondo"
+    tools:context=".MainActivity">
+
+    <!-- Barra de herramientas -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:elevation="4dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WhatsApp"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/options_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="10dp"
+            android:src="@drawable/more_icon" />
+
+        <ImageView
+            android:id="@+id/camera_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_marginEnd="25dp"
+            android:src="@drawable/camera_icon" />
+    </androidx.appcompat.widget.Toolbar>
+
+
+    <!-- Barra de búsqueda -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_view_search"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="24dp"
+        app:layout_constraintBottom_toTopOf="@+id/recyclerViewChats"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/color_barra_navegacion"
+            android:orientation="horizontal"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/image_view_search_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/search_icon" />
+
+            <EditText
+                android:id="@+id/edit_text_search"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:hint="Preguntar a Meta AI o buscar"
+                android:paddingStart="8dp"
+                android:textColorHint="@color/color_texto" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- RecyclerView for Chats -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewChats"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@id/tab_layout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/card_view_search"
+        tools:listitem="@layout/item_chat"/>
+
+    <!-- Tab Layout -->
+    <LinearLayout
+        android:id="@+id/tab_layout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerViewChats">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp">
+
+            <ImageButton
+                android:id="@+id/imageButtonChat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/fondo"
+                android:contentDescription="Mensajes"
+                android:minHeight="40dp"
+                app:srcCompat="@drawable/chat_icon"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/textViewChat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Chats"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp">
+
+            <ImageButton
+                android:id="@+id/imageButtonNovedades"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/fondo"
+                android:contentDescription="Ver estados"
+                android:minHeight="40dp"
+                app:srcCompat="@drawable/status_icon"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/textViewNovedades"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Novedades"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="12dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp">
+
+            <ImageButton
+                android:id="@+id/imageButtonComunidades"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/fondo"
+                android:contentDescription="Revisar comunidades"
+                android:minHeight="40dp"
+                app:srcCompat="@drawable/community_icon"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/textViewComunidades"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Comunidades"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:paddingHorizontal="10dp">
+
+            <ImageButton
+                android:id="@+id/imageButtonLlamadas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/fondo"
+                android:contentDescription="Revisar llamadas"
+                android:minHeight="40dp"
+                app:srcCompat="@drawable/phone_icon"
+                tools:ignore="HardcodedText" />
+
+            <TextView
+                android:id="@+id/textViewLlamadas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Llamadas"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                tools:ignore="HardcodedText" />
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
