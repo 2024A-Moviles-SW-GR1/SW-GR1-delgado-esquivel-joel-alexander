@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".vista.SelectUbicationActivity">
+
+    <TextView
+        android:id="@+id/label_titulo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:padding="5dp"
+        android:text="Ingrese el lugar de nacimiento"
+        android:textColor="#0000FF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <fragment
+        android:id="@+id/map_actor_agregar_ubicacion"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent="0.9"
+        app:layout_constraintHeight_percent="0.6"
+        app:layout_constraintBottom_toTopOf="@+id/label_latitud"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_titulo"
+        tools:context=".GGoogleMapsActivity" />
+
+    <TextView
+        android:id="@+id/label_latitud"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Latitud"
+        app:layout_constraintEnd_toStartOf="@id/label_longitud"
+        app:layout_constraintStart_toStartOf="@+id/map_actor_agregar_ubicacion"
+        app:layout_constraintTop_toBottomOf="@+id/map_actor_agregar_ubicacion" />
+
+    <TextView
+        android:id="@+id/label_longitud"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:text="Longitud"
+        app:layout_constraintEnd_toEndOf="@+id/map_actor_agregar_ubicacion"
+        app:layout_constraintStart_toEndOf="@+id/label_latitud"
+        app:layout_constraintTop_toBottomOf="@+id/map_actor_agregar_ubicacion" />
+
+    <Button
+        android:id="@+id/btn_guardar_ubi_nacimiento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="10dp"
+
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#3F51B5"
+        android:text="Guardar"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btn_cancel_agregar_ubi_nacimiento"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/map_actor_agregar_ubicacion"
+        app:layout_constraintHorizontal_chainStyle="spread" />
+
+    <Button
+        android:id="@+id/btn_cancel_agregar_ubi_nacimiento"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:layout_marginHorizontal="10dp"
+        android:backgroundTint="#3F51B5"
+        android:text="Cancelar"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintStart_toEndOf="@id/btn_guardar_ubi_nacimiento"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/map_actor_agregar_ubicacion"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

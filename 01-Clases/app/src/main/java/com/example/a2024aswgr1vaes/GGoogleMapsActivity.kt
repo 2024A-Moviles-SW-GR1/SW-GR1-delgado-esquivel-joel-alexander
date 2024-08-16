@@ -61,6 +61,7 @@ class GGoogleMapsActivity : AppCompatActivity() {
             }
         }
     }
+
     fun  escucharListeners(){
         mapa.setOnPolygonClickListener {
             mostrarSnackbar("setOnPolygonClickListener $it.tag")
