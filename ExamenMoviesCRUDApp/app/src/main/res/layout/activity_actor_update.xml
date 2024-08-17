@@ -120,8 +120,15 @@
                 tools:ignore="HardcodedText" />
         </LinearLayout>
 
-
-
+        <Button
+            android:id="@+id/actualizarUbicacionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:backgroundTint="#3F51B5"
+            android:text="Actualizar ubicación de nacimiento"
+            android:paddingHorizontal="20dp"
+            tools:ignore="HardcodedText" />
 
     </LinearLayout>
 

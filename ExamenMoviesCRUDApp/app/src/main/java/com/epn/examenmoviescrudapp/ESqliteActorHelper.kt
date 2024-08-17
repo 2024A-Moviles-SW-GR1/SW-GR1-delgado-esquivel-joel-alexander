@@ -174,6 +174,8 @@ class ESqliteActorHelper(context: Context) : SQLiteOpenHelper(context, DATABASE_
             put(COLUMNA_EDAD, actor.age)
             put(COLUMNA_NACIONALIDAD, actor.nationality)
             put(COLUMNA_ACTIVO, actor.active)
+            put(COLUMNA_LATITUD, actor.latitud)
+            put(COLUMNA_LONGITUD, actor.longitud)
         }
         val parametrosActualizar = arrayOf(actor.id.toString())
         val resultado =

@@ -52,6 +52,12 @@ class ActorsListActivity : AppCompatActivity(), ActorsAdapter.OnMovieClickListen
         startActivity(intent)
     }
 
+    override fun onActorView(actor: Actor) {
+        val intent = Intent(this, ViewActorsBirthplaceActivity::class.java)
+        intent.putExtra("actor_id", actor.id)
+        startActivity(intent)
+    }
+
     override fun onResume() {
         super.onResume()
         actorsAdapter.refreshActors(dbHelper.consultarTodosLosActores())
